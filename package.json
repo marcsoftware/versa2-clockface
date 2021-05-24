@@ -1,0 +1,28 @@
+{
+  "devDependencies": {
+    "@fitbit/sdk": "~4.2.0"
+  },
+  "fitbit": {
+    "appUUID": "2e7abd70-e8a2-48d2-b919-4950a78b8262",
+    "appType": "clockface",
+    "appDisplayName": "tutorial",
+    "iconFile": "resources/icon.png",
+    "wipeColor": "",
+    "requestedPermissions": [
+      "access_heart_rate",
+      "access_activity",
+      "access_internet",
+      "access_user_profile",
+      "run_background"
+    ],
+    "buildTargets": [
+      "mira"
+    ],
+    "i18n": {
+      "en-US": {
+        "name": "tutorial"
+      }
+    },
+    "defaultLanguage": "en-US"
+  }
+}

@@ -1,0 +1,26 @@
+
+
+
+
+TODO:
+       (refactoring)
+  DONE delete the unused HTML elements.
+  DONE delete the unused CSS
+       edit CSSselectos to apply to oldbadnames and the newSelfDocumentingNames
+       edit the HTML and JS to use the newSelfDocumentingName
+       refacotr the actual javascript functions
+       
+       (bugfix)
+  DONE fixed bug where calTimeSpend was way off in the morning
+
+TODO:
+       (features)
+      make stepsETA use the previousMinute's steps
+ DONE change previousSixDayStepTotal to average
+ DONE change previousSixDayCalTotal to average
+ DONE added count-up feature which is pschyologically more motivating thatn a countdown timer
+      
+      ::RESEARCH PROBLEMS::
+      (the example code did not work create a separate project and retest)
+      use the Fibit_cal_goal as the cal_goal instead of hardcoding 2700
+      use the Fitbit_step_goal instead of hardcodegin 25000

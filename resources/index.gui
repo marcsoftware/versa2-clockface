@@ -1,0 +1,33 @@
+<svg class="background" >
+
+
+  
+  <!-- TOP 3RD-->
+    <text id="clock"  > clock</text>
+    <text id="date" > date</text>
+    <text id="seconds" > seconds</text>
+    <text id="heartrate"   > HR</text>
+  
+    <!-- progress bar related to seconds-->
+      <rect id="normalThinBar"     /> <!--secondsBar -->
+  
+  <!-- middle 3rd -->
+    <text id="bonus"   > bonus</text> <!--previous6days flag -->
+    <text id="battery"> battery</text> <!-- battery charge-->
+
+    <text id="steps"   >steps</text> <!-- total steps today -->
+    <text id="stepsTimeLeft"   >stepsTimeLeft</text> <!-- stepETA-->
+  <text id="stepsTimeSpent"   >stepsTimeSpent</text> <!-- -->
+
+  <!-- bottom 3rd-->
+    <text id="lastMinuteCalories"  > lastMinuteCalories</text><!-- previous minute calories-->
+    <text id="calorieETA"   > calorieETA</text>
+  <text id="flags"   > flags</text><!-- yes/no flags for cal_goal -->
+  <text id="calorieTimeSpent"   > calorieTimeSpent</text>
+
+    <text id="points">points</text> <!-- total cals burned today & metabalism BMR  -->
+
+    
+    <text id="alt"    >alt</text> <!-- extra cals burned (i.e) calories above the BMR -->
+</svg>
+

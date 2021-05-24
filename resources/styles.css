@@ -1,0 +1,173 @@
+.background {
+  viewport-fill: black;
+}
+
+/* TOP # */
+
+#clock {
+  font-size: 15;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: middle;
+  x: 80%;
+  y: 10%;
+  fill: white;
+}
+
+#seconds {
+  font-size: 35;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: middle;
+  x: 80;
+  y: 30%;
+  fill: grey;
+}
+
+#date {
+  font-size: 15;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: middle;
+  x: 80%;
+  y: 20%;
+  fill: white;
+}
+
+
+#heartrate {
+  font-size: 120;
+  font-family: System-Regular;
+  text-length: 32;
+  text-anchor: middle;
+  x: 30%;
+  y: 30%;
+  fill: white;
+}
+
+
+
+/* MIDDLE 3RD ================*/
+#stepsTimeSpent{
+  fill:#9494b8;
+   x: 34%; 
+  y: 60%;
+  font-size:55;
+  text-length:100;
+  
+}
+
+#stepsTimeLeft{
+  fill:#9494b8;
+   x: 1%; 
+  y: 60%;
+  font-size:25;
+  text-length:100;
+  
+}
+
+
+#battery {
+  font-size: 20;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: middle;
+  x: 10%;
+  y: 45%;
+  
+  fill: #668cff;
+}
+
+/* hold the previous 6 day average*/
+#bonus {
+  font-size: 25;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: middle;
+ x: 55%; 
+  y: 45%;
+  fill: #666699;
+}
+
+#steps{
+  fill:#7575a3;
+   x: 1%; 
+  y: 53%;
+  font-size:25;
+  text-length:100;
+  
+}
+
+/* BOTTOM 3rd ==================*/
+#lastMinuteCalories{
+    fill:#0000e6;
+   x: 1%; 
+  y: 80%;
+  font-size:25;
+  text-length:100;
+}
+
+
+
+#normalThinBar {
+  width: 100%;
+  height: 8;
+  
+  x: 5; 
+  y: 68%;
+  width:100%;
+  fill:  #000066;
+}
+
+/* totalcals compares to hardcodedBMR . just delete this!*/
+#points { 
+  font-size: 15;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: middle;
+  x: 50%;
+  y: 75%;
+  fill: black;
+}
+
+
+#calorieTimeSpent{ 
+  font-size: 50;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: middle;
+  x: 65%;
+  y: 90%;
+  fill: #4d4dff;
+}
+
+#calorieETA {
+   fill: #4d4dff;
+   x: 1%; 
+  y: 97%;
+  font-size:25;
+  text-length:100;
+  
+}
+
+#flags {
+   fill: #4d4dff;
+   x: 50%; 
+  y: 97%;
+  font-size:15;
+  text-length:100;
+  
+}
+/* alt -> extraCalorieBurnToday , bmr is substracted every minute*/
+#alt{
+    fill: #1a1aff;
+   x: 1%; 
+  y: 90%;
+  font-size:25;
+  text-length:100;
+}
+
+
+
+
+
