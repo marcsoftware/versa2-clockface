@@ -1,4 +1,7 @@
+![alt text](file://snapshot.png/ "snapshot")
+
 ## how to run or side-load on actual device 
+
 1. go to studio.fitbit.com
 2. drag and drop the code into the side panel
 3. on fitbit watch : 
