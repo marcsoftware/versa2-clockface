@@ -1,4 +1,4 @@
-![alt text](file://snapshot.png/ "snapshot")
+![alt text](snapshot.png/ "snapshot")
 
 ## how to run or side-load on actual device 
 
