@@ -16,9 +16,9 @@
     <text id="bonus"   > bonus</text> <!--previous6days flag -->
     <text id="battery"> battery</text> <!-- battery charge-->
 
-    <text id="steps"   >steps</text> <!-- total steps today -->
-    <text id="stepsTimeLeft"   >stepsTimeLeft</text> <!-- stepETA-->
-  <text id="stepsTimeSpent"   >stepsTimeSpent</text> <!-- -->
+    <text id="steps"   ></text> <!-- total steps today -->
+    <text id="stepsTimeLeft"   ></text> <!-- stepETA-->
+  <text id="stepsTimeSpent"   ></text> <!-- -->
 
   <!-- bottom 3rd-->
   <rect id="calorieBar"     /> <!--calorieBar -->

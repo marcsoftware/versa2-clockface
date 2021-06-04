@@ -45,8 +45,7 @@ var military_hours=0;
 var STEPS_PER_MINUTE=(549/(4*60+47))*60;
 clock.ontick = (evt) => {
   
-  let steps =prettyNumber(today.adjusted.steps);
-  let stepsInt =(today.adjusted.steps);
+ 
   let today2 = evt.date; // TODO change name since today is reserved 
   
   var parsed=(today2.toString().match(/[\w\d]+/g));
@@ -56,22 +55,9 @@ clock.ontick = (evt) => {
  let batterypower=(Math.floor(battery.chargeLevel) + "%");
   document.getElementById("battery").text=batterypower;
   
-  var pace= (STEP_GOAL/15)*(military_hours-7); // hourly pace
-  document.getElementById('steps').text=prettyNumber(stepsInt);
-  
-  var steps_left=STEP_GOAL-parseInt(today.adjusted.steps);
-  var steps_time_spent=today.adjusted.steps/STEPS_PER_MINUTE;
-  if(steps_left<0){
-    steps_left=0;
-  }
-  
-  //TODO get steps from last minute
-  //TODO use prettySeconds() function
-  var time_left=(((steps_left)/STEPS_PER_MINUTE)); //minutes
 
   
-  document.getElementById('stepsTimeLeft').text=prettyMinutes(time_left);
-  document.getElementById('stepsTimeSpent').text=prettyMinutes(steps_time_spent);
+
   let hours = today2.getHours();
   military_hours=hours;
   if (preferences.clockDisplay === "12h") {
@@ -100,8 +86,35 @@ clock.ontick = (evt) => {
   
   document.getElementById('date').text=`${parsed[0]} ${parsed[1]} ${parsed[2]}`;
   
+  renderGoalHistory();//todo set this to 1day iterval
+}
+
+//---------------------------------------------------------------
+// reset stats
+//---------------------------------------------------------------
+function getSteps(){
+   let steps =prettyNumber(today.adjusted.steps);
+    let stepsInt =(today.adjusted.steps);
+      var pace= (STEP_GOAL/15)*(military_hours-7); // hourly pace
+  document.getElementById('steps').text=prettyNumber(stepsInt);
+
+    var steps_left=STEP_GOAL-parseInt(today.adjusted.steps);
+  var steps_time_spent=today.adjusted.steps/STEPS_PER_MINUTE;
+  if(steps_left<0){
+    steps_left=0;
+  }
+  
+  //TODO get steps from last minute
+  //TODO use prettySeconds() function
+  var time_left=(((steps_left)/STEPS_PER_MINUTE)); //minutes
+
+  
+  document.getElementById('stepsTimeLeft').text=prettyMinutes(time_left);
+  document.getElementById('stepsTimeSpent').text=prettyMinutes(steps_time_spent);
   
 }
+
+
 //---------------------------------------------------------------
 // reset stats
 //---------------------------------------------------------------
@@ -173,42 +186,47 @@ function print(x){
 }
 
 
-
+//---------------------------------------------------------------
+// displays a checkmark if user hit goal for that day.
+// versa2 only holds the previous 6 days of history.
+//---------------------------------------------------------------
 import { me as appbit } from "appbit";
 import { minuteHistory, dayHistory } from "user-activity";
+function renderGoalHistory(){
+    if (appbit.permissions.granted("access_activity")) {
+      // query the previous 5 minutes step data
+    //  const minuteRecords = minuteHistory.query({ limit: 5 });
 
-if (appbit.permissions.granted("access_activity")) {
-  // query the previous 5 minutes step data
-//  const minuteRecords = minuteHistory.query({ limit: 5 });
+     // minuteRecords.forEach((minute, index) => {
+      //  console.log(`${minute.steps || 0} steps. ${index + 1} minute(s) ago.`);
+      //});
 
- // minuteRecords.forEach((minute, index) => {
-  //  console.log(`${minute.steps || 0} steps. ${index + 1} minute(s) ago.`);
-  //});
+      // query all days history step data
+      const dayRecords = dayHistory.query({ limit: 10 }); // versea 2 only has previous 6 days saved
+     var week_cal_total=0;
+      var week_steps_total=0;
+      var CAL_REST=2400; //cals burned while resting
+      var flags=[];
+      dayRecords.forEach((day, index) => {
+        var day_calories=day.calories-CAL_REST;
 
-  // query all days history step data
-  const dayRecords = dayHistory.query({ limit: 10 }); // versea 2 only has previous 6 days saved
- var week_cal_total=0;
-  var week_steps_total=0;
-  var CAL_REST=2400; //cals burned while resting
-  var flags=[];
-  dayRecords.forEach((day, index) => {
-    var day_calories=day.calories-CAL_REST;
-    
-    week_cal_total+=(day.calories-CAL_REST);
-    week_steps_total+=day.steps;
-    document.getElementById('bonus').text=prettyNumber(week_cal_total/index)+" ... "+prettyNumber(week_steps_total/index);
-    if(day_calories >=CAL_GOAL){
-      flags.push('✅'); // emoji that are not supported on clockface will break all emojis
-       
-      }else{
-        flags.push('⚪️');
-      }
-    
-  });
-  
-  document.getElementById('flags').text=(flags.reverse().join(''));
+        week_cal_total+=(day.calories-CAL_REST);
+        week_steps_total+=day.steps;
+        document.getElementById('bonus').text=prettyNumber(week_cal_total/index)+
+                   " ... "+prettyNumber(week_steps_total/index);
+        if(day_calories >=CAL_GOAL){
+          flags.push('✅'); // emoji that are not supported on clockface will break all emojis
+
+          }else{
+            flags.push('⚪️');
+          }
+
+      });
+
+      document.getElementById('flags').text=(flags.reverse().join(''));
+    }
+
 }
-
 //--------------------------------------------------------------
 //
 //--------------------------------------------------------------
