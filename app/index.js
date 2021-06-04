@@ -20,7 +20,7 @@ var STEP_GOAL=25000; // todo get these from fitbit instead of hardcoding
 var CAL_GOAL=2000;  // todo get these from fitbit instead of hardcoding
 var bmr=2400; //
 var BMR=bmr;
-
+var global_seconds;
 //
 import { user } from "user-profile";
 
@@ -94,6 +94,7 @@ clock.ontick = (evt) => {
   global_minutes=hours_count*60+parseInt(mins)+(parsed[6]/60);// TODO what is parsed[6]/60?
    
   var seconds= parsed[6];
+  global_seconds=seconds;
   document.getElementById('seconds').text=`${parsed[6]}`;
   document.getElementById('normalThinBar').width=seconds/60*SCREEN_WIDTH;
   
@@ -165,7 +166,7 @@ function print(x){
   
   document.getElementById('alt').text=extra_cals;
   
-  document.getElementById('points').text=sdk_calories+"-"+((0-bmr).toFixed(1));
+  //document.getElementById('points').text=sdk_calories+"-"+((0-bmr).toFixed(1));
   
   getMinuteHistory(extra_cals);
   
@@ -192,7 +193,7 @@ if (appbit.permissions.granted("access_activity")) {
   var flags=[];
   dayRecords.forEach((day, index) => {
     var day_calories=day.calories-CAL_REST;
-    console.log(day.calories);
+    
     week_cal_total+=(day.calories-CAL_REST);
     week_steps_total+=day.steps;
     document.getElementById('bonus').text=prettyNumber(week_cal_total/index)+" ... "+prettyNumber(week_steps_total/index);
@@ -211,7 +212,7 @@ if (appbit.permissions.granted("access_activity")) {
 //--------------------------------------------------------------
 //
 //--------------------------------------------------------------
-var BASE_SPEED=10; // calories per minute than can be reached with somewhat easy effort
+var BASE_SPEED=11.11; // calories per minute than can be reached with somewhat easy effort
                    // so that the calculations dont shoot up when user rests.
 function getMinuteHistory(done_cals){
       const minRecords = minuteHistory.query({ limit: 1 }); // versea 2 only has previous 6 days saved
@@ -226,7 +227,7 @@ function getMinuteHistory(done_cals){
    var flag='';
   //console.log(`${minute.steps || 0} steps. ${index + 1} minute(s) ago.`);
      var real_burn=(min.calories-bmr_per_minute);
-     
+     var real_burn_org=real_burn;
     document.getElementById('lastMinuteCalories').text=real_burn.toFixed(1);
      if(real_burn<BASE_SPEED){
        real_burn=BASE_SPEED;
@@ -234,6 +235,11 @@ function getMinuteHistory(done_cals){
      }
     var time_left = (cals_left/real_burn);
     document.getElementById('calorieETA').text=prettyMinutes(time_left)+flag;
+     
+     //the SDK cals are a minute behind to guesstimate down to the second
+     
+     done_cals =parseFloat(done_cals)+ parseFloat(((real_burn_org)/60)*global_seconds);
+     document.getElementById('calorieBar').width=(done_cals/CAL_GOAL)*SCREEN_WIDTH;
      
      var cal_time_spent=done_cals/BASE_SPEED;
      if(cal_time_spent<0){

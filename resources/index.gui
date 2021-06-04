@@ -11,6 +11,7 @@
     <!-- progress bar related to seconds-->
       <rect id="normalThinBar"     /> <!--secondsBar -->
   
+  
   <!-- middle 3rd -->
     <text id="bonus"   > bonus</text> <!--previous6days flag -->
     <text id="battery"> battery</text> <!-- battery charge-->
@@ -20,12 +21,13 @@
   <text id="stepsTimeSpent"   >stepsTimeSpent</text> <!-- -->
 
   <!-- bottom 3rd-->
+  <rect id="calorieBar"     /> <!--calorieBar -->
     <text id="lastMinuteCalories"  > lastMinuteCalories</text><!-- previous minute calories-->
     <text id="calorieETA"   > calorieETA</text>
   <text id="flags"   > flags</text><!-- yes/no flags for cal_goal -->
   <text id="calorieTimeSpent"   > calorieTimeSpent</text>
 
-    <text id="points">points</text> <!-- total cals burned today & metabalism BMR  -->
+    
 
     
     <text id="alt"    >alt</text> <!-- extra cals burned (i.e) calories above the BMR -->
