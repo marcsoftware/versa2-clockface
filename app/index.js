@@ -209,7 +209,7 @@ function renderGoalHistory() {
 
             week_cal_total += (day.calories - bmr) / 2;
             week_steps_total += day.steps;
-            document.getElementById('bonus').text = prettyNumber(week_cal_total / index) +
+            document.getElementById('average').text = prettyNumber(week_cal_total / index) +
                 " ... " + prettyNumber(week_steps_total / index); // TODO change name of bonus to average
 
 

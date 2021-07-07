@@ -13,7 +13,7 @@
   
   
   <!-- middle 3rd -->
-    <text id="bonus"   > bonus</text> <!--previous6days flag -->
+    <text id="average"   > average</text> <!--previous6days flag -->
     <text id="battery"> battery</text> <!-- battery charge-->
 
 
@@ -27,6 +27,6 @@
     
 
     
-    <text id="extra_calories"    >alt</text> <!-- extra cals burned (i.e) calories above the BMR -->
+    <text id="extra_calories"    >extra_calories</text> <!-- extra cals burned (i.e) calories above the BMR -->
 </svg>
 
