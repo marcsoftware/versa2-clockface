@@ -66,6 +66,14 @@
   
 }
 
+#lastMinuteSteps{
+  fill:white;
+   x: 1%; 
+  y: 67%;
+  font-size:25;
+  text-length:100;
+  
+}
 
 #battery {
   font-size: 20;
@@ -108,6 +116,17 @@
   text-length:100;
   
 }
+
+#stepBar {
+  width: 100%;
+  height: 16;
+  
+  x: 5; 
+  y: 65%;
+  width:100%;
+  fill:  black;
+}
+
 
 /* BOTTOM 3rd ==================*/
 #lastMinuteCalories{
@@ -154,7 +173,7 @@
 }
 
 #flags {
-   fill: #4d4dff;
+   fill: red;
    x: 50%; 
   y: 97%;
   font-size:15;
@@ -162,7 +181,7 @@
   
 }
 /* alt -> extraCalorieBurnToday , bmr is substracted every minute*/
-#alt{
+#extra_calories{
     fill: #1a1aff;
    x: 1%; 
   y: 90%;

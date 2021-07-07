@@ -7,7 +7,7 @@
   DONE delete the unused CSS
        edit CSSselectos to apply to oldbadnames and the newSelfDocumentingNames
        edit the HTML and JS to use the newSelfDocumentingName
-       refacotr the actual javascript functions
+       refactor the actual javascript functions
  DONE  removed the STEPS features since calories more important & reduces clutter.
        
 (bugfixes)
@@ -15,7 +15,7 @@
 
 
 (new features)
-      make stepsETA use the previousMinute's steps
+ 
  DONE change previousSixDayStepTotal to average
  DONE change previousSixDayCalTotal to average
  DONE added count-up feature which is pschyologically more motivating thatn a countdown timer

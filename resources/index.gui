@@ -16,9 +16,6 @@
     <text id="bonus"   > bonus</text> <!--previous6days flag -->
     <text id="battery"> battery</text> <!-- battery charge-->
 
-    <text id="steps"   ></text> <!-- total steps today -->
-    <text id="stepsTimeLeft"   ></text> <!-- stepETA-->
-  <text id="stepsTimeSpent"   ></text> <!-- -->
 
   <!-- bottom 3rd-->
   <rect id="calorieBar"     /> <!--calorieBar -->
@@ -30,6 +27,6 @@
     
 
     
-    <text id="alt"    >alt</text> <!-- extra cals burned (i.e) calories above the BMR -->
+    <text id="extra_calories"    >alt</text> <!-- extra cals burned (i.e) calories above the BMR -->
 </svg>
 
