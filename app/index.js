@@ -28,6 +28,37 @@ var CAL_GOAL;
 var global_seconds;
 
 
+//----------------- global vars for getMinuteHistory()
+// TODO calories_pace instead of base_speed
+var BASE_SPEED = 5; // calories per minute than can be reached with somewhat easy effort
+var global_steps_per_minute = 60; // TODO rename this variable too.
+
+//----------------- used by reduceMinute()
+var calorie_correction_percentage = 0.4;
+
+//-----------used by print()
+var counter = 0;
+var cals = 0;
+var MAX_RATE = 14;
+var SCREEN_WIDTH = 299;
+
+var bmr_per_minute = bmr / (60 * 24);
+var global_done_calories;
+
+
+//-----------------------used by if statement get heartrate
+const heartrate = document.getElementById("heartrate");
+
+//------------------------------used by clockevent
+clock.granularity = "seconds";
+var old_date;
+const myLabel = document.getElementById("clock");
+var global_minutes = 0;
+var military_hours = 0;
+
+var STEP_PACE = 110;
+var STEPS_PER_MINUTE = STEP_PACE; // TODO use STEP_PACE INSTEAD
+
 
 
 //----------------------------------------
@@ -50,14 +81,7 @@ if (appbit.permissions.granted("access_activity")) {
 
 
 // Update the clock every minute
-clock.granularity = "seconds";
-var old_date;
-const myLabel = document.getElementById("clock");
-var global_minutes = 0;
-var military_hours = 0;
 
-var STEP_PACE = 110;
-var STEPS_PER_MINUTE = STEP_PACE; // TODO use STEP_PACE INSTEAD
 clock.ontick = (evt) => {
 
 
@@ -107,7 +131,7 @@ clock.ontick = (evt) => {
 //---------------------------------------------------------------
 // create interval to update& render heart rate every second.
 //---------------------------------------------------------------
-const heartrate = document.getElementById("heartrate");
+
 
 
 if (HeartRateSensor) {
@@ -134,13 +158,7 @@ if (HeartRateSensor) {
 //---------------------------------------------------------------
 
 
-var counter = 0;
-var cals = 0;
-var MAX_RATE = 14;
-var SCREEN_WIDTH = 299;
 
-var bmr_per_minute = bmr / (60 * 24);
-var global_done_calories;
 
 function print(x) {
 
@@ -165,7 +183,7 @@ function print(x) {
 //          fitbit calorie calculations are overly optimistic so reduce them by
 //          40%
 //---------------------------------------------------------------------
-var calorie_correction_percentage = 0.4;
+
 
 function reduceMinute(x) {
 
@@ -186,7 +204,7 @@ function reduceMinute(x) {
 //           versa2 only holds the previous 6 days of history.
 //---------------------------------------------------------------
 
-var CAL_REST = bmr; //cals burned while resting
+var CAL_REST = bmr; //TODO rename CAL_REST to bmr in this function.
 function renderGoalHistory() {
     if (appbit.permissions.granted("access_activity")) {
 
@@ -235,9 +253,7 @@ function renderGoalHistory() {
 //               since the total_cals_for_day are always
 //               one minute behind.
 //--------------------------------------------------------------
-// TODO calories_pace instead of base_speed
-var BASE_SPEED = 5; // calories per minute than can be reached with somewhat easy effort
-var global_steps_per_minute = 60; // TODO rename this variable too.
+
 function getMinuteHistory(done_cals) {
     const minRecords = minuteHistory.query({
         limit: 1
@@ -260,7 +276,7 @@ function getMinuteHistory(done_cals) {
         var real_burn_org = real_burn;
         document.getElementById('lastMinuteCalories').text = real_burn.toFixed(1);
         global_steps_per_minute = min.steps;
-        document.getElementById('lastMinuteSteps').text = min.steps;
+    
         /*
          if(real_burn<BASE_SPEED){
            real_burn=BASE_SPEED;
