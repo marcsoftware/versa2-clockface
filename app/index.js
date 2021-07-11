@@ -13,9 +13,10 @@ import { minuteHistory, dayHistory} from "user-activity";
 
 
 /*
-1. rename the HTML and CSS elements
-2.  delete all references to steps.(11 matches)
-
+DONE 1. rename the HTML and CSS elements
+DONE 2. delete all references to steps.(11 matches)
+     3. make constants capitalized 
+     4. make global variable names global_whatevername or make make local variable
 
 */
 
@@ -23,22 +24,22 @@ import { minuteHistory, dayHistory} from "user-activity";
 //---------------------------------------------------------------
 // global variables 
 //---------------------------------------------------------------
-var bmr = (user.bmr || 1800);
+var bmr = (user.bmr || 1800); // TODO capitalize bmr everywhere
 var CAL_GOAL;
 var global_seconds;
 
 
 //----------------- global vars for getMinuteHistory()
 // TODO calories_pace instead of base_speed
-var BASE_SPEED = 5; // calories per minute than can be reached with somewhat easy effort
-var global_steps_per_minute = 60; // TODO rename this variable too.
+var BASE_SPEED = 3; // calories per minute that can be reached with somewhat easy effort
+
 
 //----------------- used by reduceMinute()
 var calorie_correction_percentage = 0.4;
 
 //-----------used by print()
-var counter = 0;
-var cals = 0;
+var counter = 0; // TODO make local variable ?
+var cals = 0; // TODO make local variable ?
 var MAX_RATE = 14;
 var SCREEN_WIDTH = 299;
 
@@ -51,15 +52,16 @@ const heartrate = document.getElementById("heartrate");
 
 //------------------------------used by clockevent
 clock.granularity = "seconds";
-var old_date;
+var old_date; // TODO make local variable ?
 const myLabel = document.getElementById("clock");
 var global_minutes = 0;
-var military_hours = 0;
+var military_hours = 0;// TODO make local variable ?
 
 var STEP_PACE = 110;
 var STEPS_PER_MINUTE = STEP_PACE; // TODO use STEP_PACE INSTEAD
 
-
+//---------rendergoalhistory()
+var CAL_REST = bmr; //TODO rename CAL_REST to bmr in this function.
 
 //----------------------------------------
 // initilize constants to match user profile
@@ -85,7 +87,7 @@ if (appbit.permissions.granted("access_activity")) {
 clock.ontick = (evt) => {
 
 
-    let today2 = evt.date; // TODO change name since today is reserved 
+    let today2 = evt.date; // TODO change name since 'today' is reserved word
 
     var parsed = (today2.toString().match(/[\w\d]+/g));
 
@@ -155,6 +157,8 @@ if (HeartRateSensor) {
 //---------------------------------------------------------------
 //  print(x)
 //                                       Print the hearate info
+// side effect: renders extra_extracalories
+// prereq     : need today imported
 //---------------------------------------------------------------
 
 
@@ -202,9 +206,10 @@ function reduceMinute(x) {
 // renderGoalHistory()
 //           displays a checkmark if user hit goal for that day.
 //           versa2 only holds the previous 6 days of history.
+// side effect : renders average and flags.
 //---------------------------------------------------------------
 
-var CAL_REST = bmr; //TODO rename CAL_REST to bmr in this function.
+
 function renderGoalHistory() {
     if (appbit.permissions.granted("access_activity")) {
 
@@ -228,7 +233,7 @@ function renderGoalHistory() {
             week_cal_total += (day.calories - bmr) / 2;
             week_steps_total += day.steps;
             document.getElementById('average').text = prettyNumber(week_cal_total / index) +
-                " ... " + prettyNumber(week_steps_total / index); // TODO change name of bonus to average
+                " ... " + prettyNumber(week_steps_total / index); 
 
 
 
@@ -252,6 +257,7 @@ function renderGoalHistory() {
 //               gets the history but only the last minute
 //               since the total_cals_for_day are always
 //               one minute behind.
+// side effects : renders lastminutecals caleta calbar & calorieTimeSpend
 //--------------------------------------------------------------
 
 function getMinuteHistory(done_cals) {
@@ -269,7 +275,7 @@ function getMinuteHistory(done_cals) {
     minRecords.forEach((min, index) => {
         var flag = '';
         
-        var real_burn = (min.calories / 2 - bmr_per_minute); // TODO why devide by two?
+        var real_burn = reduceMinute(min.calories); 
         if (real_burn < 0) {
             real_burn = 0.001;
         }
