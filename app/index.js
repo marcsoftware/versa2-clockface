@@ -24,7 +24,7 @@ DONE 2. delete all references to steps.(11 matches)
 //---------------------------------------------------------------
 // global variables 
 //---------------------------------------------------------------
-var bmr = (user.bmr || 1800); // TODO capitalize bmr everywhere
+var BMR = (user.bmr || 1800); 
 var CAL_GOAL;
 var global_seconds;
 
@@ -43,7 +43,7 @@ var cals = 0; // TODO make local variable ?
 var MAX_RATE = 14;
 var SCREEN_WIDTH = 299;
 
-var bmr_per_minute = bmr / (60 * 24);
+var bmr_per_minute = BMR / (60 * 24);
 var global_done_calories;
 
 
@@ -61,7 +61,7 @@ var STEP_PACE = 110;
 var STEPS_PER_MINUTE = STEP_PACE; // TODO use STEP_PACE INSTEAD
 
 //---------rendergoalhistory()
-var CAL_REST = bmr; //TODO rename CAL_REST to bmr in this function.
+
 
 //----------------------------------------
 // initilize constants to match user profile
@@ -69,7 +69,7 @@ var CAL_REST = bmr; //TODO rename CAL_REST to bmr in this function.
 
 if (appbit.permissions.granted("access_activity")) {
     CAL_GOAL = goals.calories || 3000;
-    CAL_GOAL = CAL_GOAL - bmr;
+    CAL_GOAL = CAL_GOAL - BMR;
     console.log("cal_goal (minus bmr) is :" + CAL_GOAL);
 
 } else {
@@ -228,9 +228,9 @@ function renderGoalHistory() {
             flags.push('X');
         }
         dayRecords.forEach((day, index) => {
-            var day_calories = (day.calories - bmr) / 2;
+            var day_calories = (day.calories - BMR) / 2;
 
-            week_cal_total += (day.calories - bmr) / 2;
+            week_cal_total += (day.calories - BMR) / 2;
             week_steps_total += day.steps;
             document.getElementById('average').text = prettyNumber(week_cal_total / index) +
                 " ... " + prettyNumber(week_steps_total / index); 
