@@ -251,7 +251,7 @@ function getMinuteHistory(done_cals) {
         }
         var real_burn_org = real_burn;
         document.getElementById('lastMinuteCalories').text = real_burn.toFixed(1);
-        global_steps_per_minute = min.steps;
+        
     
         /*
          if(real_burn<BASE_SPEED){
