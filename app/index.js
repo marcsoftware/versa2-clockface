@@ -11,56 +11,26 @@ import { today } from "user-activity";
 
 import { minuteHistory, dayHistory} from "user-activity";
 
-
-/*
-DONE 1. rename the HTML and CSS elements
-DONE 2. delete all references to steps.(11 matches)
-     3. make constants capitalized 
-     4. make global variable names global_whatevername or make make local variable
-
-*/
-
-
 //---------------------------------------------------------------
 // global variables 
 //---------------------------------------------------------------
 var BMR = (user.bmr || 1800); 
 var CAL_GOAL;
 var global_seconds;
-
-
-//----------------- global vars for getMinuteHistory()
-// TODO calories_pace instead of base_speed
-var BASE_SPEED = 3; // calories per minute that can be reached with somewhat easy effort
-
-
-//----------------- used by reduceMinute()
+var BASE_SPEED = 3; // calories per minute that can be reached with somewhat easy effort used for metric.
 var calorie_correction_percentage = 0.4;
-
-//-----------used by print()
-var counter = 0; // TODO make local variable ?
-var cals = 0; // TODO make local variable ?
 var MAX_RATE = 14;
 var SCREEN_WIDTH = 299;
-
 var bmr_per_minute = BMR / (60 * 24);
 var global_done_calories;
 
 
 //-----------------------used by if statement get heartrate
 const heartrate = document.getElementById("heartrate");
-
-//------------------------------used by clockevent
 clock.granularity = "seconds";
-var old_date; // TODO make local variable ?
 const myLabel = document.getElementById("clock");
 var global_minutes = 0;
-var military_hours = 0;// TODO make local variable ?
-
 var STEP_PACE = 110;
-var STEPS_PER_MINUTE = STEP_PACE; // TODO use STEP_PACE INSTEAD
-
-//---------rendergoalhistory()
 
 
 //----------------------------------------
@@ -97,7 +67,7 @@ clock.ontick = (evt) => {
     document.getElementById("battery").text = batterypower;
 
     let hours = today2.getHours();
-    military_hours = hours;
+    
     if (preferences.clockDisplay === "12h") {
         // 12h format
 
@@ -124,7 +94,7 @@ clock.ontick = (evt) => {
 
     document.getElementById('date').text = `${parsed[0]} ${parsed[1]} ${parsed[2]}`;
 
-    renderGoalHistory(); //todo set this to 1day iterval
+    renderGoalHistory(); 
     
 }
 
