@@ -1,6 +1,6 @@
 ![alt text](snapshot.png/ "snapshot")
 
-## how to run or side-load on actual device 
+## how to run or side-load on an actual device 
 
 1. go to studio.fitbit.com
 2. drag and drop the code into the side panel

@@ -86,6 +86,16 @@
   fill: #668cff;
 }
 
+#labelBattery {
+  font-size: 10;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: middle;
+  x: 10%;
+  y: 47%;
+  
+  fill: #668cff;
+}
 
 #normalThinBar {
   width: 100%;
@@ -105,6 +115,16 @@
   text-anchor: middle;
  x: 55%; 
   y: 45%;
+  fill: #666699;
+}
+
+#labelAverage {
+  font-size: 10;
+  font-family: System-Bold;
+  text-length: 32;
+  text-anchor: middle;
+ x: 55%; 
+  y: 47%;
   fill: #666699;
 }
 
@@ -136,6 +156,16 @@
   font-size:25;
   text-length:100;
 }
+
+#labelLastMinuteCalories{
+    fill:white;
+   x: 1%; 
+  y: 82%;
+  font-size:10;
+  
+  text-length:100;
+}
+
 
 
 
@@ -172,6 +202,15 @@
   
 }
 
+#labelCalorieETA {
+   fill: white;
+   x: 1%; 
+  y: 99%;
+  font-size:10;
+  text-length:100;
+  
+}
+
 #flags {
    fill: red;
    x: 50%; 
@@ -180,12 +219,30 @@
   text-length:100;
   
 }
+
+#labelFlags {
+   fill: white;
+   x: 57%; 
+  y: 100%;
+  font-size:10;
+  text-length:100;
+  
+}
+
 /* alt -> extraCalorieBurnToday , bmr is substracted every minute*/
 #extra_calories{
     fill: #1a1aff;
    x: 1%; 
-  y: 90%;
+  y: 88%;
   font-size:25;
+  text-length:100;
+}
+
+#labelExtra_calories{
+    fill: white;
+   x: 1%; 
+  y: 90%;
+  font-size:10;
   text-length:100;
 }
 

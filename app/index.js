@@ -172,6 +172,26 @@ function reduceMinute(x) {
     return x;
 }
 
+//---------------------------------------------------------------------
+// reduce(x)
+//          fitbit calorie calculations are overly optimistic so reduce them by
+//          40%
+//---------------------------------------------------------------------
+
+
+function reduce(x) {
+
+    
+
+    
+
+
+
+    
+    x = x - (x * calorie_correction_percentage);
+    return x;
+}
+
 //---------------------------------------------------------------
 // renderGoalHistory()
 //           displays a checkmark if user hit goal for that day.
@@ -192,22 +212,22 @@ function renderGoalHistory() {
 
         var flags = [];
 
-        if (global_done_calories / 2 > (CAL_GOAL)) {
+        if (reduceMinute(global_done_calories) +BMR> (CAL_GOAL)) {
             flags.push('✅');
         } else {
-            flags.push('X');
+            flags.push('❓');
         }
         dayRecords.forEach((day, index) => {
-            var day_calories = (day.calories - BMR) / 2;
+            var day_calories = day.calories;
 
-            week_cal_total += (day.calories - BMR) / 2;
+            week_cal_total += day.calories ;
             week_steps_total += day.steps;
             document.getElementById('average').text = prettyNumber(week_cal_total / index) +
                 " ... " + prettyNumber(week_steps_total / index); 
 
 
 
-            if (day_calories >= CAL_GOAL) {
+            if (reduce(day_calories) >= CAL_GOAL) {
                 flags.push('✅'); // emoji that are not supported on clockface will break all emojis
 
             } else {
@@ -272,7 +292,8 @@ function getMinuteHistory(done_cals) {
         if (cal_time_spent < 0) {
             cal_time_spent = 0;
         }
-        document.getElementById('calorieTimeSpent').text = prettyMinutes(cal_time_spent);
+        document.getElementById('calorieTimeSpent').text = done_cals.toFixed(2); // render cals instead of etimated time.
+                                                             //TODO rename element in css and html
 
     });
 }

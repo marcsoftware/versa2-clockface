@@ -14,19 +14,25 @@
   
   <!-- middle 3rd -->
     <text id="average"   > average</text> <!--previous6days flag -->
+  <text id="labelAverage"   > average</text> <!--previous6days flag -->
     <text id="battery"> battery</text> <!-- battery charge-->
-
+<text id="labelBattery"> battery</text> <!-- battery charge-->
 
   <!-- bottom 3rd-->
   <rect id="calorieBar"     /> <!--calorieBar -->
     <text id="lastMinuteCalories"  > lastMinuteCalories</text><!-- previous minute calories-->
+  <text id="labelLastMinuteCalories"  > cal burn</text><!-- previous minute calories-->
+  
     <text id="calorieETA"   > calorieETA</text>
+  <text id="labelCalorieETA"   > goal ETA</text>
   <text id="flags"   > flags</text><!-- yes/no flags for cal_goal -->
+  <text id="labelFlags"   > past six day goals</text><!-- yes/no flags for cal_goal -->
   <text id="calorieTimeSpent"   > calorieTimeSpent</text>
 
     
 
     
     <text id="extra_calories"    >extra_calories</text> <!-- extra cals burned (i.e) calories above the BMR -->
+  <text id="labelExtra_calories"    >extra_calories</text> <!-- extra cals burned (i.e) calories above the BMR -->
 </svg>
 
