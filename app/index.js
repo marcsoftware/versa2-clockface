@@ -94,7 +94,7 @@ clock.ontick = (evt) => {
 
     document.getElementById('date').text = `${parsed[0]} ${parsed[1]} ${parsed[2]}`;
 
-    renderGoalHistory(); 
+    renderGoalHistory(); // TODO don't call this so often
     
 }
 
@@ -180,15 +180,9 @@ function reduceMinute(x) {
 
 
 function reduce(x) {
-
-    
-
-    
-
-
-
-    
+     x=x-BMR;
     x = x - (x * calorie_correction_percentage);
+ 
     return x;
 }
 
@@ -220,7 +214,8 @@ function renderGoalHistory() {
         dayRecords.forEach((day, index) => {
             var day_calories = day.calories;
 
-            week_cal_total += day.calories ;
+            week_cal_total += reduce(day.calories) ;
+          console.log(day.calories+"==="+reduce(day.calories) );
             week_steps_total += day.steps;
             document.getElementById('average').text = prettyNumber(week_cal_total / index) +
                 " ... " + prettyNumber(week_steps_total / index); 

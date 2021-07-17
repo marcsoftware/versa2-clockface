@@ -14,7 +14,7 @@
   
   <!-- middle 3rd -->
     <text id="average"   > average</text> <!--previous6days flag -->
-  <text id="labelAverage"   > average</text> <!--previous6days flag -->
+  <text id="labelAverage"   > average cals & steps</text> <!--previous6days flag -->
     <text id="battery"> battery</text> <!-- battery charge-->
 <text id="labelBattery"> battery</text> <!-- battery charge-->
 
