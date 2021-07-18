@@ -206,7 +206,7 @@ function renderGoalHistory() {
 
         var flags = [];
 
-        if (reduceMinute(global_done_calories) +BMR> (CAL_GOAL)) {
+        if (reduceMinute(global_done_calories)> (CAL_GOAL)) {
             flags.push('✅');
         } else {
             flags.push('❓');
@@ -215,7 +215,7 @@ function renderGoalHistory() {
             var day_calories = day.calories;
 
             week_cal_total += reduce(day.calories) ;
-          console.log(day.calories+"==="+reduce(day.calories) );
+          
             week_steps_total += day.steps;
             document.getElementById('average').text = prettyNumber(week_cal_total / index) +
                 " ... " + prettyNumber(week_steps_total / index); 
@@ -275,7 +275,11 @@ function getMinuteHistory(done_cals) {
          }
          */
         var time_left = (cals_left / real_burn);
-        document.getElementById('calorieETA').text = prettyMinutes(time_left) + flag;
+      time_left=prettyMinutes(time_left);
+      if(real_burn<0.1){
+          time_left='∞';
+         }
+        document.getElementById('calorieETA').text = (time_left) + flag;
 
         //the SDK cals are a minute behind to guesstimate down to the second
 
