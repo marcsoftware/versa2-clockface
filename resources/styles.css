@@ -172,10 +172,10 @@
 
 
 
-#calorieTimeSpent{ /*TODO rename this to estimatedCaloriesEverySecond */
+#updatedEverySecondCalories{ /*TODO rename this to estimatedCaloriesEverySecond */
   font-size: 60;
   font-family: System-Bold;
-  text-length: 32;
+  text-length: 500;
   text-anchor: middle;
   x: 59%;
   y: 90%;

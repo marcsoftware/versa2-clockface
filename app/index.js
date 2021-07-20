@@ -92,7 +92,7 @@ clock.ontick = (evt) => {
     document.getElementById('seconds').text = `${parsed[6]}`;
     document.getElementById('normalThinBar').width = seconds / 60 * SCREEN_WIDTH;
 
-    document.getElementById('date').text = `${parsed[0]} ${parsed[1]} ${parsed[2]}`;
+    document.getElementById('date').text = `${parsed[0]} ${parsed[1]} ${parsed[2]}`; 
 
     renderGoalHistory(); // TODO don't call this so often
     
@@ -284,12 +284,6 @@ function getMinuteHistory(done_cals) {
 
         done_cals = parseFloat(done_cals) + parseFloat(((real_burn_org) / 60) * global_seconds);
         document.getElementById('calorieBar').width = (done_cals / CAL_GOAL) * SCREEN_WIDTH;
-
-
-        var cal_time_spent = done_cals / BASE_SPEED;
-        if (cal_time_spent < 0) {
-            cal_time_spent = 0;
-        }
         document.getElementById('updatedEverySecondCalories').text = done_cals.toFixed(2);
                                                              
 
