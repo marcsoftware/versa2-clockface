@@ -21,7 +21,7 @@
   <!-- bottom 3rd-->
   <rect id="calorieBar"     /> <!--calorieBar -->
     <text id="lastMinuteCalories"  > lastMinuteCalories</text><!-- previous minute calories-->
-  <text id="labelLastMinuteCalories"  > cal burn</text><!-- previous minute calories-->
+  <text id="labelLastMinuteCalories"  > current cal burn</text><!-- previous minute calories-->
   
     <text id="calorieETA"   > calorieETA</text>
   <text id="labelCalorieETA"   > goal ETA</text>

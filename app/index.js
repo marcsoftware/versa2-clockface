@@ -206,7 +206,7 @@ function renderGoalHistory() {
 
         var flags = [];
 
-        if (reduceMinute(global_done_calories)> (CAL_GOAL)) {
+        if ((global_done_calories)> (CAL_GOAL)) {
             flags.push('✅');
         } else {
             flags.push('❓');
@@ -248,7 +248,7 @@ function renderGoalHistory() {
 function getMinuteHistory(done_cals) {
     const minRecords = minuteHistory.query({
         limit: 1
-    }); // versea 2 only has previous 6 days saved
+    }); // 
 
 
     var cals_left = CAL_GOAL - done_cals;
@@ -260,24 +260,23 @@ function getMinuteHistory(done_cals) {
     minRecords.forEach((min, index) => {
         var flag = '';
         
-        var real_burn = reduceMinute(min.calories); 
+        var real_burn = (min.calories-bmr_per_minute); 
+      real_burn = real_burn-(calorie_correction_percentage*real_burn);
         if (real_burn < 0) {
             real_burn = 0.001;
         }
         var real_burn_org = real_burn;
         document.getElementById('lastMinuteCalories').text = real_burn.toFixed(1);
         
-    
-        /*
-         if(real_burn<BASE_SPEED){
-           real_burn=BASE_SPEED;
-           flag='>';
-         }
-         */
+  
         var time_left = (cals_left / real_burn);
       time_left=prettyMinutes(time_left);
       if(real_burn<0.1){
           time_left='∞';
+         }
+      
+      if(cals_left===0){
+          time_left='DONE';
          }
         document.getElementById('calorieETA').text = (time_left) + flag;
 
@@ -310,7 +309,7 @@ function prettyNumber(x) {
 //---------------------------------------------------------------
 function prettyMinutes(minutes) {
 
-
+minutes=parseFloat(minutes);
     var seconds = minutes * 60; // minutes is float so you can get seconds.
 
     var pretty = new Date(seconds * 1000).toISOString().substr(11, 8)
