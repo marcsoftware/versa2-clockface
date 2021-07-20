@@ -5,7 +5,7 @@
   "fitbit": {
     "appUUID": "2e7abd70-e8a2-48d2-b919-4950a78b8262",
     "appType": "clockface",
-    "appDisplayName": "tutorial",
+    "appDisplayName": "OPENSOURCE calorie focused",
     "iconFile": "resources/icon.png",
     "wipeColor": "",
     "requestedPermissions": [
@@ -20,7 +20,7 @@
     ],
     "i18n": {
       "en-US": {
-        "name": "tutorial"
+        "name": "OPENSOURCE calorie focused"
       }
     },
     "defaultLanguage": "en-US"

@@ -1,12 +1,6 @@
-Install from this link.
-https://gallery.fitbit.com/details/2e7abd70-e8a2-48d2-b919-4950a78b8262
-
-
 ![alt text](snapshot.png/ "snapshot")
 
-
-
-## alternative install :: how to run or side-load on an actual device 
+## how to run or side-load on an actual device 
 
 1. go to studio.fitbit.com
 2. drag and drop the code into the side panel
