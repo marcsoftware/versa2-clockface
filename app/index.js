@@ -266,7 +266,7 @@ function getMinuteHistory(done_cals) {
             real_burn = 0.001;
         }
         var real_burn_org = real_burn;
-        document.getElementById('lastMinuteCalories').text = real_burn.toFixed(1);
+        document.getElementById('prevMinuteCalories').text = real_burn.toFixed(1);
         
   
         var time_left = (cals_left / real_burn);
@@ -290,8 +290,8 @@ function getMinuteHistory(done_cals) {
         if (cal_time_spent < 0) {
             cal_time_spent = 0;
         }
-        document.getElementById('calorieTimeSpent').text = done_cals.toFixed(2); // render cals instead of etimated time.
-                                                             //TODO rename element in css and html
+        document.getElementById('updatedEverySecondCalories').text = done_cals.toFixed(2);
+                                                             
 
     });
 }
@@ -308,8 +308,8 @@ function prettyNumber(x) {
 //  prettyMinutes(minutes)
 //---------------------------------------------------------------
 function prettyMinutes(minutes) {
-
-minutes=parseFloat(minutes);
+    if(minutes==="NaN"){return 0;}
+    minutes=parseFloat(minutes);
     var seconds = minutes * 60; // minutes is float so you can get seconds.
 
     var pretty = new Date(seconds * 1000).toISOString().substr(11, 8)

@@ -20,14 +20,14 @@
 
   <!-- bottom 3rd-->
   <rect id="calorieBar"     /> <!--calorieBar -->
-    <text id="lastMinuteCalories"  > lastMinuteCalories</text><!-- previous minute calories-->
-  <text id="labelLastMinuteCalories"  > current cal burn</text><!-- previous minute calories-->
+    <text id="prevMinuteCalories"  > </text><!-- previous minute calories-->
+  <text id="labelPrevMinuteCalories"  > current cal burn</text><!-- previous minute calories-->
   
-    <text id="calorieETA"   > calorieETA</text>
+    <text id="calorieETA"   > </text>
   <text id="labelCalorieETA"   > goal ETA</text>
   <text id="flags"   > flags</text><!-- yes/no flags for cal_goal -->
   <text id="labelFlags"   > past six day goals</text><!-- yes/no flags for cal_goal -->
-  <text id="calorieTimeSpent"   > calorieTimeSpent</text>
+  <text id="updatedEverySecondCalories"   > </text><!-- fitbit api only updates calories every minute , this estimates every second-->
 
     
 

@@ -1,10 +1,6 @@
-install from this url : https://gallery.fitbit.com/details/2e7abd70-e8a2-48d2-b919-4950a78b8262
-
 ![alt text](snapshot.png/ "snapshot")
 
 ## how to run or side-load on an actual device 
-
-###### This method allows for you to edit the app in anyway you want
 
 1. go to studio.fitbit.com
 2. drag and drop the code into the side panel
